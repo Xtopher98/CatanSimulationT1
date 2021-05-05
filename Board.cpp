@@ -4,7 +4,7 @@
 
 #include "Board.h"
 
-void Board::fillTileVec(vector<tile> &tiles) {
+void Board::fillTileVec(vector<Tile> &tiles) {
     for(int i = 0; i < 4; i++) {
         tiles.push_back(Wheat);
         tiles.push_back(Wood);
@@ -18,7 +18,7 @@ void Board::fillTileVec(vector<tile> &tiles) {
 }
 
 void Board::generate() {
-    vector<tile> tiles;
+    vector<Tile> tiles;
     random_device rand;
     fillTileVec(tiles);
     while(!tiles.empty()) {
@@ -28,8 +28,12 @@ void Board::generate() {
     }
 }
 
+void Board::buildGraph() {
+
+}
+
 void Board::print() {
-    for(tile t : board) {
+    for(Tile t : board) {
         cout << t << " ";
     }
     cout << endl;

@@ -8,22 +8,24 @@
 #include <iostream>
 #include <vector>
 #include <random>
+#include "Node.h"
 
 using namespace std;
 
 
 class Board {
 public:
-    enum tile {Wheat, Wood, Sheep, Ore, Brick, Desert};
-    vector<tile> board;
+
+    vector<Tile> board;
 
     Board() = default;
 
-    static void fillTileVec(vector<tile> &tiles);
+    static void fillTileVec(vector<Tile> &tiles);
     void generate();
+    void buildGraph();
     void print();
 
 };
 
 
-#endif BOARD_H
+#endif //BOARD_H
