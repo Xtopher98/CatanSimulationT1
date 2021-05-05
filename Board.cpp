@@ -4,7 +4,8 @@
 
 #include "Board.h"
 
-void Board::fillTileVec(vector<Tile> &tiles) {
+void Board::fillVecs(vector<Tile> &tiles, vector<int> &nums) {
+    //fill tiles
     for(int i = 0; i < 4; i++) {
         tiles.push_back(Wheat);
         tiles.push_back(Wood);
@@ -15,16 +16,36 @@ void Board::fillTileVec(vector<Tile> &tiles) {
         }
     }
     tiles.push_back(Desert);
+
+    //fill numbers
+    nums.push_back(2);
+    for(int i = 3; i <= 11; i++) {
+        if(i != 7) {
+            nums.push_back(i);
+            nums.push_back(i);
+        }
+    }
+    nums.push_back(12);
 }
 
 void Board::generate() {
     vector<Tile> tiles;
+    vector<int> numbers;
     random_device rand;
-    fillTileVec(tiles);
+    fillVecs(tiles, numbers);
     while(!tiles.empty()) {
         int index = rand() % tiles.size();
         board.push_back(tiles[index]);
         tiles.erase(tiles.begin() + index);
+    }
+    for(Tile t : board) {
+        if(t == Desert) {
+            nums.push_back(-1);
+        } else {
+            int index = rand() % numbers.size();
+            nums.push_back(numbers[index]);
+            numbers.erase(numbers.begin()+index);
+        }
     }
 }
 
@@ -33,8 +54,16 @@ void Board::buildGraph() {
 }
 
 void Board::print() {
-    for(Tile t : board) {
-        cout << t << " ";
+    for(int i = 0; i < board.size(); i++) {
+        cout << board[i] << " " << nums[i] << endl;
     }
-    cout << endl;
+
+//    for(Tile t : board) {
+//        cout << t << " ";
+//    }
+//    cout << endl;
+//    for(int i : nums) {
+//        cout << i << " ";
+//    }
+//    cout << endl;
 }

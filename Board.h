@@ -17,10 +17,11 @@ class Board {
 public:
 
     vector<Tile> board;
+    vector<int> nums;
 
     Board() = default;
 
-    static void fillTileVec(vector<Tile> &tiles);
+    static void fillVecs(vector<Tile> &tiles, vector<int> &nums);
     void generate();
     void buildGraph();
     void print();
