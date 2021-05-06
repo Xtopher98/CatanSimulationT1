@@ -18,6 +18,7 @@ public:
 
     vector<Tile> board;
     vector<int> nums;
+    vector<Node> nodes;
 
     Board() = default;
 
