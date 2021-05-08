@@ -58,34 +58,34 @@ void Board::buildGraph() {
         nodes.emplace_back(Beach, Beach, board[i], -1, -1, nums[i]);
     //3-6
     for(int i = 0; i < 4; i++)
-        nodes.emplace_back(i-1>=0?board[i-1]:Beach, i<=2?board[i]:Beach, Beach, i-1>=0?nums[i-1]:-1, i<=2?nums[i]:-1, -1);
+        nodes.emplace_back(i>0?board[i-1]:Beach, i<3?board[i]:Beach, Beach, i>0?nums[i-1]:-1, i<3?nums[i]:-1, -1);
     //7-10
     for(int i = 0; i < 4; i++)
-        nodes.emplace_back(i-1>=0?board[i-1]:Beach, i<=2?board[i]:Beach, board[i+3], i-1>=0?nums[i-1]:-1, i<=2?nums[i]:-1, nums[i+3]);
+        nodes.emplace_back(i>0?board[i-1]:Beach, i<3?board[i]:Beach, board[i+3], i>0?nums[i-1]:-1, i<3?nums[i]:-1, nums[i+3]);
     //11-15
     for(int i = 0; i < 5; i++)
-        nodes.emplace_back(i+2>=3?board[i+2]:Beach, i+3<=6?board[i+3]:Beach, (i-1>=0 || i<=3)?board[i]:Beach, i+2>=3?nums[i+2]:-1, i+3<=6?nums[i+3]:-1, (i-1>=0 || i<=3)?nums[i]:-1);
+        nodes.emplace_back(i>0?board[i+2]:Beach, i<4?board[i+3]:Beach, (i>0 && i<4)?board[i]:Beach, i>0?nums[i+2]:-1, i<4?nums[i+3]:-1, (i>0 && i<4)?nums[i]:-1);
     //16-20
     for(int i = 0; i < 5; i++)
-        nodes.emplace_back(i+2>=3?board[i+2]:Beach, i+3<=6?board[i+3]:Beach, board[i+7], i+2>=3?nums[i+2]:-1, i+3<=6?nums[i+3]:-1, nums[i+7]);
+        nodes.emplace_back(i>0?board[i+2]:Beach, i<4?board[i+3]:Beach, board[i+7], i>0?nums[i+2]:-1, i<4?nums[i+3]:-1, nums[i+7]);
     //21-26
     for(int i = 0; i < 6; i++)
-        nodes.emplace_back(i+6>=7?board[i+6]:Beach, i+7<=11?board[i+7]:Beach, (i-1>=0|| i<=4)?board[i+3]:Beach, i+6>=7?nums[i+6]:-1, i+7<=11?nums[i+7]:-1, (i-1>=0|| i<=4)?nums[i+3]:-1);
+        nodes.emplace_back(i>0?board[i+6]:Beach, i<5?board[i+7]:Beach, (i>0 && i<5)?board[i+3]:Beach, i>0?nums[i+6]:-1, i<5?nums[i+7]:-1, (i>0 && i<5)?nums[i+3]:-1);
     //27-32
     for(int i = 0; i < 6; i++)
-        nodes.emplace_back(i+6>=7?board[i+6]:Beach, i+7<=11?board[i+7]:Beach, (i-1>=0|| i<=4)?board[i+12]:Beach, i+6>=7?nums[i+6]:-1, i+7<=11?nums[i+7]:-1, (i-1>=0|| i<=4)?nums[i+12]:-1);
+        nodes.emplace_back(i>0?board[i+6]:Beach, i<5?board[i+7]:Beach, (i>0 && i<5)?board[i+12]:Beach, i>0?nums[i+6]:-1, i<5?nums[i+7]:-1, (i>0 && i<5)?nums[i+12]:-1);
     //33-37
     for(int i = 0; i < 5; i++)
-        nodes.emplace_back(i+2>=3?board[i+11]:Beach, i+3<=6?board[i+12]:Beach, board[i+7], i+2>=3?nums[i+11]:-1, i+3<=6?nums[i+12]:-1, nums[i+7]);
+        nodes.emplace_back(i>0?board[i+11]:Beach, i<4?board[i+12]:Beach, board[i+7], i>0?nums[i+11]:-1, i<4?nums[i+12]:-1, nums[i+7]);
     //38-42
     for(int i = 0; i < 5; i++)
-        nodes.emplace_back(i+2>=3?board[i+11]:Beach, i+3<=6?board[i+12]:Beach, (i-1>=0 || i<=3)?board[i+16]:Beach, i+2>=3?nums[i+11]:-1, i+3<=6?nums[i+12]:-1, (i-1>=0 || i<=3)?nums[i+16]:-1);
+        nodes.emplace_back(i>0?board[i+11]:Beach, i<4?board[i+12]:Beach, (i>0 && i<4)?board[i+16]:Beach, i>0?nums[i+11]:-1, i<4?nums[i+12]:-1, (i>0 && i<4)?nums[i+16]:-1);
     //43-46
     for(int i = 0; i < 4; i++)
-        nodes.emplace_back(i-1>=0?board[i+15]:Beach, i<=2?board[i+16]:Beach, board[i+12], i-1>=0?nums[i+15]:-1, i<=2?nums[i+16]:-1, nums[i+12]);
+        nodes.emplace_back(i>0?board[i+15]:Beach, i<3?board[i+16]:Beach, board[i+12], i>0?nums[i+15]:-1, i<3?nums[i+16]:-1, nums[i+12]);
     //47-50
     for(int i = 0; i < 4; i++)
-        nodes.emplace_back(i-1>=0?board[i+15]:Beach, i<=2?board[i+16]:Beach, Beach, i-1>=0?nums[i+15]:-1, i<=2?nums[i+16]:-1,-1);
+        nodes.emplace_back(i>0?board[i+15]:Beach, i<3?board[i+16]:Beach, Beach, i>0?nums[i+15]:-1, i<3?nums[i+16]:-1,-1);
     //51-53
     for(int i = 0; i < 3; i++)
         nodes.emplace_back(Beach, Beach, board[i+16], -1, -1, nums[i+16]);
