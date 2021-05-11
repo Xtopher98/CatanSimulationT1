@@ -20,12 +20,15 @@ public:
     vector<int> nums;
     vector<Node> nodes;
 
-    Board() = default;
+    //constructor generates random board
+    Board();
 
-    static void fillVecs(vector<Tile> &tiles, vector<int> &nums);
+    void print();
+
+private:
+    static void fillVecs(vector<Tile> &tiles, vector<int> &numbers);
     void generate();
     void buildGraph();
-    void print();
 
 };
 

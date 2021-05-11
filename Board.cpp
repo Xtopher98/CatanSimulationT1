@@ -4,7 +4,12 @@
 
 #include "Board.h"
 
-void Board::fillVecs(vector<Tile> &tiles, vector<int> &nums) {
+Board::Board() {
+    generate();
+    buildGraph();
+}
+
+void Board::fillVecs(vector<Tile> &tiles, vector<int> &numbers) {
     //fill tiles
     for(int i = 0; i < 4; i++) {
         tiles.push_back(Wheat);
@@ -18,14 +23,14 @@ void Board::fillVecs(vector<Tile> &tiles, vector<int> &nums) {
     tiles.push_back(Desert);
 
     //fill numbers
-    nums.push_back(2);
+    numbers.push_back(2);
     for(int i = 3; i <= 11; i++) {
         if(i != 7) {
-            nums.push_back(i);
-            nums.push_back(i);
+            numbers.push_back(i);
+            numbers.push_back(i);
         }
     }
-    nums.push_back(12);
+    numbers.push_back(12);
 }
 
 void Board::generate() {
@@ -165,3 +170,5 @@ void Board::print() {
 //    }
 //    cout << endl;
 }
+
+

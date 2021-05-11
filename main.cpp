@@ -4,8 +4,6 @@
 int main() {
 
     Board board;
-    board.generate();
-    board.buildGraph();
     board.print();
 
 
