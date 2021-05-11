@@ -1,11 +1,13 @@
 
-#include "Board.h"
+#include "Player.h"
 
 int main() {
 
     Board board;
-    board.print();
 
+    Player Cannon(Developer);
+    Cannon.findNode(board);
+    board.print();
 
     return 0;
 }

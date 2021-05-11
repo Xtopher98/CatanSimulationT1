@@ -5,7 +5,7 @@
 #ifndef NODE_H
 #define NODE_H
 
-enum Tile {Wheat, Wood, Sheep, Ore, Brick, Desert, Beach};
+enum Tile {Wheat, Wood, Sheep, Ore, Brick, Desert, Beach, Default};
 
 class Node {
 public:
