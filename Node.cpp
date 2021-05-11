@@ -12,3 +12,16 @@ Node::Node(Tile tl, Tile tr, Tile tm, int vl, int vr, int vm) {
     this->vr = vr;
     this->vm = vm;
 }
+
+bool Node::operator==(Node n) const {
+    if( this->tl != n.tl ||
+        this->tr != n.tr ||
+        this->tm != n.tm ||
+        this->vl != n.vl ||
+        this->vr != n.vr ||
+        this->vm != n.vm
+        ) {
+        return false;
+    }
+    else return true;
+}
