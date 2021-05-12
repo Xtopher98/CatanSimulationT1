@@ -25,3 +25,11 @@ bool Node::operator==(Node n) const {
     }
     else return true;
 }
+
+std::ostream& operator<<(std::ostream &os, const Node &n) {
+    os << n.tileStrings[n.tl] << "->" << n.vl << "\n"
+     << n.tileStrings[n.tr] << "->" << n.vr << "\n"
+     << n.tileStrings[n.tm] << "->" << n.vm << "\n";
+    return os;
+}
+

@@ -3,13 +3,13 @@
 //
 
 #include "Player.h"
-#include <unordered_set>
-#include <queue>
+
 
 using namespace std;
 
-Player::Player(Strategy s) {
+Player::Player(string n, Strategy s) {
     strategy = s;
+    name = n;
 }
 
 

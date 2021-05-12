@@ -5,7 +5,6 @@
 #ifndef BOARD_H
 #define BOARD_H
 
-#include <iostream>
 #include <vector>
 #include <random>
 #include "Node.h"
