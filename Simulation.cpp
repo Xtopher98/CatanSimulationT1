@@ -4,8 +4,32 @@
 
 #include "Simulation.h"
 
-Simulation::Simulation(vector<Player> &players) {
+Simulation::Simulation(vector<Player> &players, bool knownStrategies) {
     this->players = players;
+
+    //tell players what strategies are
+    // at play if requested
+    if(knownStrategies) {
+        vector<Strategy> strategies;
+        for(const Player& p : this->players) {
+            strategies.push_back(p.strategy);
+        }
+        for (Player &p : this->players) {
+            for (Strategy s : strategies) {
+                switch (s) {
+                    case Collector:
+                        p.Cplaying = true;
+                        break;
+                    case Developer:
+                        p.Dplaying = true;
+                        break;
+                    case Ranger:
+                        p.Rplaying = true;
+                        break;
+                }
+            }
+        }
+    }
 }
 
 void Simulation::run() {

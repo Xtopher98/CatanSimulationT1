@@ -20,8 +20,10 @@ private:
     //probability of rolling 2d6 and getting the index (7 is not used)
     vector<double> weightNums = {0, 0, 0.028, 0.056, 0.083, 0.11, 0.139, 0, 0.139, 0.11, 0.083, 0.056, 0.028};
 
+
 public:
     string name;
+    bool Cplaying = false, Dplaying = false, Rplaying = false;
 
     Strategy strategy;
     int node1 = -1;

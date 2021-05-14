@@ -7,7 +7,7 @@ int main() {
     players.emplace_back("Cannon", Ranger);
     players.emplace_back("Ryan",Collector);
 
-    Simulation sim(players);
+    Simulation sim(players, true);
 
     sim.printBoard();
     cout << endl;

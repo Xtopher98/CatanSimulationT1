@@ -14,7 +14,7 @@ public:
     vector<Player> players;
     Board board;
 
-    explicit Simulation(vector<Player> &players);
+    explicit Simulation(vector<Player> &players, bool knownStrategies);
 
     void run();
 
