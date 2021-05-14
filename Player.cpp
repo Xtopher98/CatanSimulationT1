@@ -44,6 +44,7 @@ int Player::findNode(Board& b) {
         if(currentNode.isAvailable) {
             double value;
 
+            //calculate node value based on strategy
             switch (strategy) {
                 case Collector:
                     value = weightNums[currentNode.vl] * weightC[currentNode.tl] +
@@ -68,7 +69,6 @@ int Player::findNode(Board& b) {
         }
     }
 
-    //update graph to show that node is taken
 
     int index = -1;
     for(int i = 0; i < b.nodes.size(); i++) {
@@ -78,6 +78,7 @@ int Player::findNode(Board& b) {
         }
     }
 
+    //update graph to show that node is taken
     b.nodes[index].isAvailable = false;
     if(b.nodes[index].nl != nullptr)
         b.nodes[index].nl->isAvailable = false;
@@ -86,7 +87,7 @@ int Player::findNode(Board& b) {
     if(b.nodes[index].nm != nullptr)
         b.nodes[index].nm->isAvailable = false;
 
-    return index;
 
+    return index;
 }
 

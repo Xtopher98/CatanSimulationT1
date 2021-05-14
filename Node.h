@@ -7,12 +7,13 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
 
 enum Tile {Wheat, Wood, Sheep, Ore, Brick, Desert, Beach};
 
 class Node {
 public:
-    std::string tileStrings[7] = {"Wheat", "Wood", "Sheep", "Ore", "Brick", "Desert", "Beach"};
+    std::vector<std::string> tileStrings{"Wheat", "Wood", "Sheep", "Ore", "Brick", "Desert", "Beach"};
     Tile tl, tr, tm; //adjacent tiles
     int vl, vr, vm; //values of tiles
     Node* nl = nullptr, *nr = nullptr, *nm = nullptr; //adjacent nodes

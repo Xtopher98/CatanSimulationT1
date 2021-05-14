@@ -158,17 +158,8 @@ void Board::buildGraph() {
 
 void Board::print() {
     for(int i = 0; i < board.size(); i++) {
-        cout << board[i] << " " << nums[i] << endl;
+        cout << tileStrings[board[i]] << "->" << nums[i] << endl;
     }
-
-//    for(Tile t : board) {
-//        cout << t << " ";
-//    }
-//    cout << endl;
-//    for(int i : nums) {
-//        cout << i << " ";
-//    }
-//    cout << endl;
 }
 
 

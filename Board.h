@@ -14,6 +14,7 @@ using namespace std;
 
 class Board {
 public:
+    vector<string> tileStrings{"Wheat", "Wood", "Sheep", "Ore", "Brick", "Desert", "Beach"};
 
     vector<Tile> board;
     vector<int> nums;
