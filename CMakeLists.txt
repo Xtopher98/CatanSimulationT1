@@ -3,4 +3,13 @@ project(CatanSimulationT1)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(CatanSimulationT1 main.cpp Board.cpp Board.h Node.cpp Node.h)
+add_executable(CatanSimulationT1
+        main.cpp
+        Board.cpp
+        Board.h
+        Node.cpp
+        Node.h
+        Player.cpp
+        Player.h
+        Simulation.cpp
+        Simulation.h)
