@@ -2,6 +2,7 @@
 
 int main() {
 
+    //create players
     vector<Player> players;
     players.emplace_back("Chris", Developer);
     players.emplace_back("Cannon", Ranger);
@@ -12,7 +13,6 @@ int main() {
     sim.printBoard();
     cout << endl;
     sim.run();
-
 
     return 0;
 }

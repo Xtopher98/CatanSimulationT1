@@ -8,6 +8,7 @@
 #include "Board.h"
 #include <unordered_set>
 #include <queue>
+#include <utility>
 
 enum Strategy{Collector, Developer, Ranger};
 
@@ -17,12 +18,13 @@ private:
     vector<double> weightC = {0.25, 0.21, 0.08, 0.25, 0.21, 0, 0};
     vector<double> weightD = {0.33, 0.05, 0.22, 0.36, 0.05, 0, 0};
     vector<double> weightR = {0.17, 0.30, 0.09, 0.13, 0.30, 0, 0};
-    //probability of rolling 2d6 and getting the index (7 is not used)
+    //probability of rolling 2d6 and getting the index (0,1 unreachable and 7 not used)
     vector<double> weightNums = {0, 0, 0.028, 0.056, 0.083, 0.11, 0.139, 0, 0.139, 0.11, 0.083, 0.056, 0.028};
-
 
 public:
     string name;
+
+    //which strategies are in play
     bool Cplaying = false, Dplaying = false, Rplaying = false;
 
     Strategy strategy;
@@ -34,6 +36,5 @@ public:
     int findNode(Board& b);
 
 };
-
 
 #endif //PLAYER_H

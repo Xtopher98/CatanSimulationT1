@@ -7,8 +7,7 @@
 Simulation::Simulation(vector<Player> &players, bool knownStrategies) {
     this->players = players;
 
-    //tell players what strategies are
-    // at play if requested
+    //tell players what strategies are at play if requested
     if(knownStrategies) {
         vector<Strategy> strategies;
         for(const Player& p : this->players) {
@@ -44,17 +43,17 @@ void Simulation::run() {
         pCpy.erase(pCpy.begin()+index);
     }
 
-    //run simulation
+    //place first settlements in order
     for(Player &p : pShuf) {
         p.node1 = p.findNode(board);
         cout << p.name << " places their first settlement on node " << p.node1 << ":\n" << board.nodes[p.node1];
     }
+    //place second settlements in reverse order
     for(int i = pShuf.size() - 1; i >= 0; i--) {
         pShuf[i].node2 = pShuf[i].findNode(board);
         cout << pShuf[i].name << " places their second settlement on node " << pShuf[i].node2 << ":\n" << board.nodes[pShuf[i].node2];
     }
     players = pShuf;
-
 }
 
 void Simulation::printBoard() {

@@ -4,10 +4,6 @@
 
 #include "Player.h"
 
-#include <utility>
-
-using namespace std;
-
 Player::Player(string n, Strategy s) {
     strategy = s;
     name = std::move(n);
@@ -16,7 +12,7 @@ Player::Player(string n, Strategy s) {
 int Player::findNode(Board& b) {
     unordered_set<Node*> visited;   //to ensure each node is only visited once
     queue<Node> q;                  //to hold the up next nodes for BFS
-    Node maxNodeC = b.nodes[0];      //starting node
+    Node maxNodeC = b.nodes[0];     //starting node
     Node maxNodeD=b.nodes[0], maxNodeR=b.nodes[0], maxNode = b.nodes[0];
     q.push(maxNodeC);
     visited.insert(&maxNodeC);
@@ -125,7 +121,7 @@ int Player::findNode(Board& b) {
             break;
     }
 
-
+    //find node index
     int index = -1;
     for(int i = 0; i < b.nodes.size(); i++) {
         if(maxNode == b.nodes[i]) {

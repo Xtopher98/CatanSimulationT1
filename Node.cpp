@@ -13,7 +13,7 @@ Node::Node(Tile tl, Tile tr, Tile tm, int vl, int vr, int vm) {
     this->vm = vm;
 }
 
-bool Node::operator==(Node n) const {
+bool Node::operator==(const Node& n) const {
     if( this->tl != n.tl ||
         this->tr != n.tr ||
         this->tm != n.tm ||
@@ -28,8 +28,8 @@ bool Node::operator==(Node n) const {
 
 std::ostream& operator<<(std::ostream &os, const Node &n) {
     os << n.tileStrings[n.tl] << "->" << n.vl << "\n"
-     << n.tileStrings[n.tr] << "->" << n.vr << "\n"
-     << n.tileStrings[n.tm] << "->" << n.vm << "\n";
+       << n.tileStrings[n.tr] << "->" << n.vr << "\n"
+       << n.tileStrings[n.tm] << "->" << n.vm << "\n";
     return os;
 }
 

@@ -38,12 +38,15 @@ void Board::generate() {
     vector<int> numbers;
     random_device rand;
     fillVecs(tiles, numbers);
+    //until all tiles are gone, generate random number and add that tile to board
     while(!tiles.empty()) {
         int index = rand() % tiles.size();
         board.push_back(tiles[index]);
         tiles.erase(tiles.begin() + index);
     }
+    //for each tile in the board, generate random number and add that value to the tile
     for(Tile t : board) {
+        //special case for desert tile
         if(t == Desert) {
             nums.push_back(0);
         } else {
