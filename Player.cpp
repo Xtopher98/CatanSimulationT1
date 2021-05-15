@@ -4,11 +4,13 @@
 
 #include "Player.h"
 
+#include <utility>
+
 using namespace std;
 
 Player::Player(string n, Strategy s) {
     strategy = s;
-    name = n;
+    name = std::move(n);
 }
 
 int Player::findNode(Board& b) {
@@ -87,6 +89,8 @@ int Player::findNode(Board& b) {
                     maxNode = maxNodeD;
                 else if(Rplaying)
                     maxNode = maxNodeR;
+                else
+                    maxNode = maxNodeC;
             }
             else
                 maxNode = maxNodeC;
@@ -99,6 +103,8 @@ int Player::findNode(Board& b) {
                     maxNode = maxNodeC;
                 else if(Rplaying)
                     maxNode = maxNodeR;
+                else
+                    maxNode = maxNodeD;
             }
             else
                 maxNode = maxNodeD;
@@ -110,6 +116,8 @@ int Player::findNode(Board& b) {
                 else if(Dplaying)
                     maxNode = maxNodeD;
                 else if(Cplaying)
+                    maxNode = maxNodeC;
+                else
                     maxNode = maxNodeR;
             }
             else
